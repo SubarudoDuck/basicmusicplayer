@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Music Player</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="player">
+    <!-- Song details -->
+    <div class="details">
+      <div class="play-count">TRACK x OF y</div>
+      <div class="cover-pic"></div>
+      <div class="song-name">Song Name</div>
+      <div class="artist-name">Artist</div>
+    </div>
+
+    <!-- Controls -->
+    <div class="buttons">
+      <div class="prev-btn" onclick="prevSong()">
+        <i class="fa fa-step-backward fa-2x"></i>
+      </div>
+      <div class="playpause-btn" onclick="playPauseSong()">
+        <i class="fa fa-play-circle fa-5x"></i>
+      </div>
+      <div class="next-btn" onclick="nextSong()">
+        <i class="fa fa-step-forward fa-2x"></i>
+      </div>
+    </div>
+
+    <!-- Time -->
+    <div class="slider-container">
+      <div class="current-time">00:00</div>
+      <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seek()">
+      <div class="total-duration">00:00</div>
+    </div>
+
+    <div class="slider-container">
+      <i class="fa fa-volume-down" onclick="volumeDown()"></i>
+      <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="changeVolume()">
+      <i class="fa fa-volume-up" onclick="volumeUp()"></i>
+    </div>
+  </div>
+  <script src="main.js"></script>
+
+</body>
+</html>

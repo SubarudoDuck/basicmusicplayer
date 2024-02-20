@@ -1,0 +1,126 @@
+body {
+    background-color: orange;
+    transition: background-color .5s;
+}
+
+.player {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.play-count {
+    font-size: 1.2rem;
+}
+
+.cover-pic {
+    margin: 25px;
+    height: 250px;
+    width: 250px;
+    background-image: url(../resources/Screenshot_2023-07-02.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15%;
+}
+
+.song-name {
+    font-size: 3rem;
+}
+
+.artist-name {
+    font-size: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.playpause-btn,
+.prev-btn,
+.next-btn {
+    padding: 25px;
+    opacity: 1;
+    transition: opacity .2s;
+}
+
+.playpause-btn:hover,
+.prev-btn:hover,
+.next-btn:hover {
+    opacity: 0.6;
+}
+
+.slider-container {
+    width: 75%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seek_slider, .volume_slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: black;
+    opacity: 1;
+    cursor: pointer;
+    -webkit-transition: .2s;
+    transition: opacity .2s, padding .2s;
+}
+
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: red;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: opacity .2s;
+}
+
+.seek_slider:hover, .volume_slider:hover {
+    opacity: 0.6;
+    padding-top: 0.5px;
+    padding-bottom: 0.5px;
+}
+
+.seek_slider {
+    width: 60%;
+}
+
+.volume_slider {
+    width: 30%;
+}
+
+.current-time,
+.total-duration {
+    padding: 10px;
+}
+
+i.fa-volume-down,
+i.fa-volume-up {
+    padding: 10px;
+}
+
+i.fa-play-circle,
+i.fa-pause-circle,
+i.fa-step-forward,
+i.fa-step-backward {
+    cursor: pointer;
+}
