@@ -130,16 +130,14 @@ function changeVolume() {
     currSong.volume = volumeSlider.value / 100;
 }
 function volumeDown() {
-    if (Math.floor(volumeSlider.value) >= 5) {
-        volumeSlider.value -= 5;
-        currSong.volume = volumeSlider.value / 100
-    }
+    volumeSlider.value -= 5;
+    console.log(volumeSlider.value);
+    currSong.volume = volumeSlider.value / 100;
 }
 function volumeUp() {
-    if (Math.floor(volumeSlider.value) <= MAX - 5) {
-        volumeSlider.value += 5;
-        currSong.volume = volumeSlider.value / 100
-    }
+    volumeSlider.value = (parseInt(volumeSlider.value) + 5).toString();
+    console.log(volumeSlider.value);
+    currSong.volume = volumeSlider.value / 100;
 }
 
 function updateSeekSlider() {
