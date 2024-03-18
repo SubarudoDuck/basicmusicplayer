@@ -33,13 +33,13 @@
     <!-- Time -->
     <div class="slider-container">
       <div class="current-time">00:00</div>
-      <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seek()">
+      <input type="range" min="1" max="100" value="0" class="seek_slider" oninput="drawShadow(seekSlider)" onchange="seek()">
       <div class="total-duration">00:00</div>
     </div>
 
     <div class="slider-container">
       <i class="fa fa-volume-down" onclick="volumeDown()"></i>
-      <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="changeVolume()">
+      <input type="range" min="0" max="100" value="99" class="volume_slider" oninput="drawShadow(volumeSlider)" onchange="changeVolume()">
       <i class="fa fa-volume-up" onclick="volumeUp()"></i>
     </div>
   </div>

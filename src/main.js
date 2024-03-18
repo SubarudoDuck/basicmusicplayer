@@ -1,5 +1,6 @@
-const MIN = 0;
+const INITIAL_POSITION = 1;
 const MAX = 100;
+const START_TIME = "00:00";
 
 let playCount = document.querySelector(".play-count");
 let coverPic = document.querySelector(".cover-pic");
@@ -50,13 +51,14 @@ function loadSong() {
     // loading a new song
     currSong.src = songList[songIndex].path;
     currSong.load();
+    drawShadow(seekSlider);
+    drawShadow(volumeSlider);
 
     // update details of curr song
     coverPic.style.backgroundImage = "url('" + songList[songIndex].image + "')";
     songName.textContent = songList[songIndex].name;
     artistName.textContent = songList[songIndex].artist;
     playCount.textContent = "TRACK " + (songIndex + 1) + " OF " + songList.length;
-
     // update seek slider every second
     updateTimer = setInterval(updateSeekSlider, 1000);
 
@@ -65,8 +67,8 @@ function loadSong() {
 }
 
 function resetValues() {
-    currTime.textContent = "00:00";
-    totalDur.textContent = "00:00";
+    currTime.textContent = START_TIME;
+    totalDur.textContent = START_TIME;
     seekSlider.value = 0;
 }
 
@@ -128,24 +130,29 @@ function seek() {
 // volume
 function changeVolume() {
     currSong.volume = volumeSlider.value / 100;
+    drawShadow(volumeSlider);
 }
 function volumeDown() {
     volumeSlider.value -= 5;
-    console.log(volumeSlider.value);
     currSong.volume = volumeSlider.value / 100;
+    drawShadow(volumeSlider);
 }
 function volumeUp() {
     volumeSlider.value = (parseInt(volumeSlider.value) + 5).toString();
-    console.log(volumeSlider.value);
     currSong.volume = volumeSlider.value / 100;
+    drawShadow(volumeSlider);
 }
 
 function updateSeekSlider() {
     let currPosition = 0;
     if (!isNaN(currSong.duration)) {
+
         // change thumb position
         currPosition = currSong.currentTime * (100 / currSong.duration);
         seekSlider.value = currPosition;
+        drawShadow(seekSlider);
+        // add slider progress
+
         // display total duration of the song
         let endMinute = Math.floor(currSong.duration / 60);
         let endSecond = Math.floor(currSong.duration % 60);
@@ -163,6 +170,10 @@ function updateSeekSlider() {
         totalDur.textContent = "NaN";
         currTime.textContent = "NaN";
     }
+}
+
+function drawShadow(slider) {
+    slider.style.background = `linear-gradient(to right, red ${slider.value}%, black ${slider.value}%)`
 }
 
 // Load the first track in the tracklist
